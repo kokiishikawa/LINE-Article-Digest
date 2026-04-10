@@ -14,3 +14,4 @@ def fetch_article_text(url: str) -> str:
     # 空行を圧縮
     lines = [line for line in text.splitlines() if line.strip()]
     text = "\n".join(lines)
+    return text
