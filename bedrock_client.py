@@ -9,7 +9,7 @@ def summarize_article(html: str) -> str:
     """
 
     resp = bedrock.converse(
-        modelId="ap.anthropic.claude-haiku-4-5-20251001-v1:0",
+        modelId="arn:aws:bedrock:ap-northeast-1:315208930945:inference-profile/jp.anthropic.claude-haiku-4-5-20251001-v1:0",
         messages=[
             {
                 "role": "user",
