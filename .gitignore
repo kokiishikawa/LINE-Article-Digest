@@ -1,0 +1,35 @@
+# 環境変数・機密情報
+.env
+.env.*
+
+# 依存関係
+venv/
+.venv/
+
+# キャッシュ
+__pycache__/
+*.pyc
+*.pyo
+.mypy_cache/
+
+# ビルド・パッケージ
+dist/
+build/
+*.egg-info/
+
+# テスト・カバレッジ
+.pytest_cache/
+.coverage
+htmlcov/
+
+# DB（ローカルデータは管理しない）
+*.db
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
+
+# エディタ
+.vscode/
+.idea/
