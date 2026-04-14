@@ -30,5 +30,7 @@ def summarize_article(text: str) -> str:
     )
 
     answer = resp["output"]["message"]["content"][0]["text"]
-    
-    return answer
+    usage = resp["usage"]
+    cost_usd = (usage["inputTokens"] / 1_000_000 * 0.80) + (usage["outputTokens"] / 1_000_000 * 4.00)
+
+    return answer, cost_usd
