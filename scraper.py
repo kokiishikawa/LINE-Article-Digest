@@ -1,9 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-import sys
 
 def fetch_article_text(url: str) -> str:
-    response = requests.get(url)
+    response = requests.get(url, timeout=10)
+    response.raise_for_status()
     soup = BeautifulSoup(response.text, "html.parser")
 
     for tag in soup(["script", "style", "nav", "footer", "header"]):
