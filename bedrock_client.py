@@ -1,7 +1,18 @@
 import boto3
 
+# Lambda の warm start でクライアントを再利用するためモジュールレベルで初期化
+bedrock = boto3.client("bedrock-runtime", region_name="ap-northeast-1")
+
+
 def summarize_article(text: str) -> str:
-    bedrock = boto3.client("bedrock-runtime", region_name="ap-northeast-1")
+    """記事テキストを Bedrock (Claude Haiku 4.5) で要約する
+
+    Args:
+        text: スクレイピングで取得した記事の本文テキスト
+
+    Returns:
+        str: 要約テキスト
+    """
 
     prompt = f"""以下の記事を要約してください。
 

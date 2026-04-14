@@ -12,8 +12,6 @@ def send_line_message(summary_text: str, reply_token: str) -> dict:
     Returns:
         dict: {"code": int, "message": str}
     """
-
-
     url = 'https://api.line.me/v2/bot/message/reply'
     headers = {
         'Authorization': f'Bearer {LINE_CHANNEL_ACCESS_TOKEN}',
@@ -25,7 +23,7 @@ def send_line_message(summary_text: str, reply_token: str) -> dict:
     }
 
     try:
-        response = requests.post(url, headers=headers, json=payload)
+        response = requests.post(url, headers=headers, json=payload, timeout=10)
         response.raise_for_status()
         return {
             "code": response.status_code,
